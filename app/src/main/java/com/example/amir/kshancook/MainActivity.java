@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
                 progressBarRecipes.setVisibility(View.GONE);
                 recipesRv.setVisibility(View.VISIBLE);
+
             }
         });
 
