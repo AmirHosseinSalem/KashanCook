@@ -1,9 +1,7 @@
 package com.example.amir.kshancook;
 
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
@@ -11,12 +9,9 @@ import android.support.v7.widget.SnapHelper;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.accessibility.AccessibilityManager;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.example.amir.kshancook.adapters.BannerAdapter;
 import com.example.amir.kshancook.adapters.CategoriesAdapter;
 import com.example.amir.kshancook.adapters.RecipesAdapter;
@@ -81,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
 
                 bannerRv.setAdapter(new BannerAdapter(response));
 
+                bannerRv.setNestedScrollingEnabled(false);
+
                 SnapHelper snapHelper = new PagerSnapHelper();
                 snapHelper.attachToRecyclerView(bannerRv);
 
@@ -103,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
 
                 categoryRv.setAdapter(new CategoriesAdapter(response));
 
+                categoryRv.setNestedScrollingEnabled(false);
+
                 progressBarCategory.setVisibility(View.GONE);
                 categoryRv.setVisibility(View.VISIBLE);
             }
@@ -120,6 +119,9 @@ public class MainActivity extends AppCompatActivity {
                 recipesRv=findViewById(R.id.rv_main_recipes);
                 recipesRv.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
                 recipesRv.setAdapter(new RecipesAdapter(response));
+
+                recipesRv.setNestedScrollingEnabled(false);
+
 
                 progressBarRecipes.setVisibility(View.GONE);
                 recipesRv.setVisibility(View.VISIBLE);
